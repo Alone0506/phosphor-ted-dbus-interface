@@ -2,17 +2,18 @@
 
 #include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/asio/connection.hpp>
-#include <xyz/openbmc_project/Sensor/Name/server.hpp>
+// #include <xyz/openbmc_project/Sensor/Name/server.hpp>
 #include <xyz/openbmc_project/Sensor/Value/server.hpp>
 
 #include <string>
 
 using ValueIface = sdbusplus::server::xyz::openbmc_project::sensor::Value;
-using OshiNameIface = sdbusplus::server::xyz::openbmc_project::sensor::Name;
+// using OshiNameIface = sdbusplus::server::xyz::openbmc_project::sensor::Name;
 
 template <typename... T>
 using ServerObject = typename sdbusplus::server::object_t<T...>;
-using Iface = ServerObject<ValueIface, OshiNameIface>;
+// using Iface = ServerObject<ValueIface, OshiNameIface>;
+using Iface = ServerObject<ValueIface>;
 
 class Sensor : public Iface
 {

@@ -1,6 +1,5 @@
 Default meson version on Ubuntu24.04 is 1.3.2, but need 1.5.0 or later to run
-`regenerate-meson`, so need to update meson version, 經過測試, 安裝 ubuntu
-25.04 預設的 meson 版本 (1.7.0) 最好
+`regenerate-meson`, so need to update meson version, 經過測試, 安裝 1.10.2 最好
 
 ```bash
 meson --version
@@ -9,14 +8,14 @@ sudo apt install python3-pip python3-setuptools python3-wheel ninja-build
 sudo apt install pipx
 pipx ensurepath
 source ~/.bashrc
-pipx install meson==1.7.0 --force
+pipx install meson==1.10.2 --force  # pipx install meson
 meson --version
 重開機
 ```
 
 ```bash
 ted@TedPC:/media/g2/openbmc$ meson --version
-1.7.0
+1.10.2
 ```
 
 不然有可以出現以下格式化的差異
