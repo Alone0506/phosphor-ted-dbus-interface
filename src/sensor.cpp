@@ -2,6 +2,7 @@
 
 #include <phosphor-logging/lg2.hpp>
 
+#include <cmath>
 #include <fstream>
 
 std::filesystem::path simulationDirPath = "/tmp/sensor/simulation";
