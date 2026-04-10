@@ -33,13 +33,20 @@ class Sensor : public Iface
         initSensor();
     }
 
-    void read();
-
   private:
     std::string name;
 
-    void initSensor();
+    void initSensor()
+    {
+        ValueIface::unit(ValueIface::Unit::DegreesC);
+        ValueIface::maxValue(255);
+        ValueIface::minValue(0);
+    }
 
     // override from dbus-interfaces の OshiNameIface::changeOshi method
-    std::string changeOshi(std::string oshi) override;
+    std::string changeOshi(std::string oshi) override
+    {
+        OshiNameIface::oshiName(oshi);
+        return oshi;
+    }
 };

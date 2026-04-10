@@ -11,13 +11,10 @@ project(
     meson_version: '>=1.1.1',
 )
 
-pkgdatadir = get_option('datadir') / meson.project_name()
-
 executable(
     'phosphor-ted-dbus-interface',
     [
         'src/main.cpp',
-        'src/sensor.cpp',
     ],
     dependencies: [
         dependency('phosphor-dbus-interfaces'),
