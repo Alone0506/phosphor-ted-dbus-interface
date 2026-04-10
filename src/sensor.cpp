@@ -54,3 +54,10 @@ void Sensor::read()
 
     ValueIface::value(value);
 }
+
+// override from dbus-interfaces の OshiNameIface::changeOshi method
+std::string Sensor::changeOshi(std::string oshi)
+{
+    OshiNameIface::oshiName(oshi);
+    return oshi;
+}

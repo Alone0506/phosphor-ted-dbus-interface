@@ -1,19 +1,18 @@
 #pragma once
 
+#include <com/ted/Oshi/server.hpp>
 #include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/asio/connection.hpp>
-// #include <xyz/openbmc_project/Sensor/Name/server.hpp>
 #include <xyz/openbmc_project/Sensor/Value/server.hpp>
 
 #include <string>
 
 using ValueIface = sdbusplus::server::xyz::openbmc_project::sensor::Value;
-// using OshiNameIface = sdbusplus::server::xyz::openbmc_project::sensor::Name;
+using OshiNameIface = sdbusplus::server::com::ted::Oshi;
 
 template <typename... T>
 using ServerObject = typename sdbusplus::server::object_t<T...>;
-// using Iface = ServerObject<ValueIface, OshiNameIface>;
-using Iface = ServerObject<ValueIface>;
+using Iface = ServerObject<ValueIface, OshiNameIface>;
 
 class Sensor : public Iface
 {
@@ -40,4 +39,7 @@ class Sensor : public Iface
     std::string name;
 
     void initSensor();
+
+    // override from dbus-interfaces の OshiNameIface::changeOshi method
+    std::string changeOshi(std::string oshi) override;
 };
