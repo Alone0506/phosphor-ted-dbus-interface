@@ -10,7 +10,7 @@ pipx ensurepath
 source ~/.bashrc
 pipx install meson==1.10.2 --force  # pipx install meson
 meson --version
-重開機
+sudo reboot
 ```
 
 ```bash
